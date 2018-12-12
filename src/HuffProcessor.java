@@ -74,7 +74,7 @@ public class HuffProcessor {
 		while (true){
 			int bitsRead = in.readBits(BITS_PER_WORD);
 			if (bitsRead == -1) break;
-			freq[bitsRead] = freq[bitsRead]+1;
+			freq[bitsRead] += 1;
 		}
 		
 		freq[PSEUDO_EOF] = 1;
