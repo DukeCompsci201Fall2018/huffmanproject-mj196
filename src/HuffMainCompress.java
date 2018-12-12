@@ -3,6 +3,7 @@ import java.io.*;
 public class HuffMainCompress {
 	public static void main(String[] args) {
 		
+	
 		System.out.println("Huffman Compress Main");
 		File inf = FileSelector.selectFile();
 		File outf = FileSelector.saveFile();
@@ -21,5 +22,7 @@ public class HuffMainCompress {
 				           bis.bitsRead(),bos.bitsWritten());
 		long diff = bis.bitsRead() - bos.bitsWritten();
 		System.out.printf("bits saved = %d\n",diff);
+		
+		
 	}
 }
