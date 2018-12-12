@@ -71,9 +71,8 @@ public class HuffProcessor {
 	
 	public int[] readForCounts(BitInputStream in) {
 		int[] freq = new int[ALPH_SIZE +1];
-		int bitsRead = in.readBits(BITS_PER_WORD);
-		
 		while (true){
+			int bitsRead = in.readBits(BITS_PER_WORD);
 			if (bitsRead == -1) break;
 			freq[bitsRead] = freq[bitsRead]+1;
 		}
@@ -88,9 +87,9 @@ public class HuffProcessor {
 	public HuffNode makeTreeFromCounts(int[] counts) {
 		
 		PriorityQueue<HuffNode> pq = new PriorityQueue<>();
-		for(int a : counts) {
-			if(a > 0)
-			pq.add(new HuffNode(Arrays.asList(counts).indexOf(a), a, null,null));
+		for(int j = 0; j < counts.length; j++) {
+			if(counts[j] != 0)
+			pq.add(new HuffNode(j, counts[j], null,null));
 		}
 		
 		if(myDebugLevel >= DEBUG_HIGH) {
